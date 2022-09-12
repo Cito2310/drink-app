@@ -32,7 +32,8 @@ export const ProductsProvider = ({children}) => {
 
     const onSetOrder = ( newOrder ) => {setListProduct({
         ...listProduct, 
-        order: newOrder
+        order: newOrder,
+        countRequest: listProduct.countRequest + 1
     })};
     
     return (
