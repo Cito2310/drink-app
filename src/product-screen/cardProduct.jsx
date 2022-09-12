@@ -42,7 +42,7 @@ export const CardProduct = ({product}) => {
     return(
         <li className="container-product animate__animated animate__fadeIn">
             <div className="data-product">
-                {/* <img className="img-bread-product" src={`/src/logo-cards/${idAssetCard}.png`}></img> */}
+                <img className="img-bread-product" src={`assets/logo-cards/${idAssetCard}.png`}></img>
                 <p>TIPO: <b>{name + " " +  size}</b></p>
                 <p style={{margin: 0}}>CANTIDAD</p> <h4> {amount}</h4>
 
