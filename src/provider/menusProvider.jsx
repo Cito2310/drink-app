@@ -29,6 +29,7 @@ export const MenusProvider = ({children}) => {
     }
 
     const onSetMenuProduct = () => {
+        document.body.style.overflow = "scroll";
         setMenus({
             ...menus,
             menu: "",

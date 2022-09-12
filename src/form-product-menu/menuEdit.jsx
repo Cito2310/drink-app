@@ -65,7 +65,6 @@ export const MenuEdit = ({product}) => {
 
     const onClose = () => {
         onSetMenuProduct();
-        document.body.style.overflow = "scroll"
     }
 
     return (

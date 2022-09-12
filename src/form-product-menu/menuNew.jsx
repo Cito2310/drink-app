@@ -57,6 +57,7 @@ export const MenuNew = () => {
                     setRequestHttp({done: true, loading: false})
                     onResetForm()
                     onUpdateRequest()
+                    onSetMenuProduct()
                 })
                 .catch(() => {setRequestHttp({error:true, msg: "Ya existe un producto como este"})})
         } else {
@@ -65,7 +66,6 @@ export const MenuNew = () => {
     }
 
     const onClose = () => {
-        document.body.style.overflow = "none";
         onSetMenuProduct();
     }
 
