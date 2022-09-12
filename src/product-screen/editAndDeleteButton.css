@@ -1,0 +1,32 @@
+.buttonFooter {
+    display: flex; 
+    flex-direction: row;
+    align-content: space-between;
+}
+    .buttonFooter > button {
+        width: auto;
+        height: auto;
+
+        background-color: inherit;
+        border: 1px solid var(--border-grey);
+        border-radius: 0.4em;
+        color: var(--color-data-grey);
+
+        align-self: flex-end;
+        margin-left: 0.4em;
+    }
+    .buttonFooter > button:hover {
+        transition: background-color 0.2s ease-in-out;
+        background-color: var(--background-hover-grey);
+        color: var(--color-hover-grey);
+    }
+    .buttonFooter > button:active {
+        transition: background-color 0.2s ease-in-out;
+        background-color: var(--background-push-grey);
+        color: var(--color-push-grey);
+    }
+
+        .buttonFooter > button > i{
+            margin: auto;
+            font-size: 0.8em;
+        }

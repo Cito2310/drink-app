@@ -1,0 +1,86 @@
+#root {
+    --color-text-black : rgb(51, 51, 51);
+    --color-close : rgb(187, 187, 187);
+
+    --color-close-hover : rgb(153, 153, 153);
+    --color-close-push : rgb(120, 120, 120);
+}
+
+.modal {
+    display: flex;
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.6);
+}
+
+    .modal-content {
+        height: auto; width: 600px; 
+        background-color: white;
+        margin: auto; 
+        padding: 1.5em;
+
+        border: 1px solid var(--border-grey);
+        border-radius: 0.6em;
+
+        font-family: Poppins ,Arial, Helvetica, sans-serif;
+    }
+
+        #header-modal {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+            #header-modal > h4 {
+                font-size: 1.4em;
+                color: var(--color-text-black)
+            }
+            #header-modal > button {
+                background-color: inherit;
+                border: none;
+                color: var(--color-close);
+                transition: color 0.2s ease-in-out;
+            }
+                #header-modal > button:hover {color: var(--color-close-hover)}
+                #header-modal > button:active {color: var(--color-close-push)}
+
+
+            #header-modal > button > i {
+                font-size: 1.7em;
+            }
+
+        
+        #body-modal > hr {
+            margin: 0.4em 0;
+        }
+
+        
+        #footer-modal {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+            .doneText {color: green; align-self: center;}
+            .alertText {color: rgb(209, 44, 44); align-self: center;}
+
+            .lds-dual-ring {
+                display: inline-block;
+                height: 24px;
+              }
+                .lds-dual-ring:after {
+                    content: " ";
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    margin: 8px;
+                    border-radius: 50%;
+                    border: 4px solid rgb(68, 68, 68);
+                    border-color: rgb(177, 177, 177) transparent rgb(177, 177, 177) transparent;
+                    animation: lds-dual-ring 1.2s linear infinite;
+                }
+                @keyframes lds-dual-ring {
+                    0% {
+                    transform: rotate(0deg);
+                    }
+                    100% {
+                    transform: rotate(360deg);
+                    }
+                }

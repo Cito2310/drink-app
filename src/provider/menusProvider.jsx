@@ -1,0 +1,53 @@
+import { useEffect } from "react";
+import { createContext, useState  } from "react";
+
+
+export const menusContext = createContext();
+export const MenusProvider = ({children}) => {
+    // INITIALIZATION
+    const [menus, setMenus] = useState({
+        menu: "",
+        product: {},
+    })
+
+    // CONTROLLERS
+    const onSetMenuEdit = (product) => {
+        document.body.style.overflow = "hidden"
+        setMenus({
+            ...menus,
+            product: product,
+            menu: "edit",
+        })
+    }
+
+    const onSetMenuNew = () => {
+        document.body.style.overflow = "hidden"
+        setMenus({
+            ...menus,
+            menu: "newproduct",
+        })
+    }
+
+    const onSetMenuProduct = () => {
+        setMenus({
+            ...menus,
+            menu: "",
+        })
+    }
+
+    const onSetMenuDelete = (idProduct) => {
+        document.body.style.overflow = "hidden"
+        setMenus({
+            ...menus,
+            product: idProduct,
+            menu: "delete",
+        })
+    }
+
+
+    return (
+        <menusContext.Provider value={{menus , onSetMenuEdit , onSetMenuNew , onSetMenuProduct , onSetMenuDelete}}>
+            {children}
+        </menusContext.Provider>
+    )
+}

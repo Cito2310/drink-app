@@ -1,0 +1,31 @@
+.fontPoppins {font-family: Poppins;}
+
+.orderBtn {
+    appearance: none;
+
+    font-family: Poppins;
+    font-size: 18px;
+
+    height: 50px;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    transition: background-color 0.4s ease-in-out;
+}
+    .orderBtn:hover {
+        background-color: rgb(235, 235, 235);
+    }
+
+    .orderSelect {
+        background-color: rgb(189, 189, 189);
+        transition: background-color 0.05s ease-in-out;
+    }
+    .orderSelect:hover {
+        background-color: rgb(189, 189, 189);
+    }
+
+    
+.lastBtnSideBar {
+    border-bottom: none;
+}
+

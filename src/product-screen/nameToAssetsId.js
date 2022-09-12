@@ -1,0 +1,1 @@
+export const nameToAssetsId = (prefix, name) => prefix + name.toLowerCase().split(" ").join("");
