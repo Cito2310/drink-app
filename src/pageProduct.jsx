@@ -17,8 +17,8 @@ export const PageProduct = () => {
 
     return(
         <>
-            {menu === "" ? <ProductGrid /> : "" }
-            {menu === "onlyneed" ? <OnlyNeedMenu /> : "" }
+            {menu !== "onlyneed" ? <ProductGrid /> : "" }
+            {menu !== "" ? <OnlyNeedMenu /> : "" }
             
             {menu === "edit" ? <MenuEdit product={product}/> : "" }
             {menu === "newproduct" ? <MenuNew /> : "" }

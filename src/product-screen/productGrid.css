@@ -10,7 +10,7 @@
     --color-push-grey: rgb(90, 90, 90);
 }
 
-#sideBarBtn {position: fixed}
+#sideBarBtn {position: fixed; z-index: 3;}
 
 #product-grid {
     font-family: Poppins ,Arial, Helvetica, sans-serif;
