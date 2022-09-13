@@ -5,6 +5,7 @@ import { menusContext } from "./provider/menusProvider";
 
 // Components
 import { ProductGrid } from "./product-screen/productGrid";
+import { OnlyNeedMenu } from "./only-need-menu/onlyNeedMenu";
 
 import { MenuNew } from "./form-product-menu/menuNew";
 import { MenuEdit } from "./form-product-menu/menuEdit";
@@ -16,7 +17,8 @@ export const PageProduct = () => {
 
     return(
         <>
-            <ProductGrid />
+            {menu === "" ? <ProductGrid /> : "" }
+            {menu === "onlyneed" ? <OnlyNeedMenu /> : "" }
             
             {menu === "edit" ? <MenuEdit product={product}/> : "" }
             {menu === "newproduct" ? <MenuNew /> : "" }

@@ -36,6 +36,14 @@ export const MenusProvider = ({children}) => {
         })
     }
 
+    const onSetMenuOnlyNeed = () => {
+        document.body.style.overflow = "scroll";
+        setMenus({
+            ...menus,
+            menu: "onlyneed",
+        })
+    }
+
     const onSetMenuDelete = (idProduct) => {
         document.body.style.overflow = "hidden"
         setMenus({
@@ -47,7 +55,7 @@ export const MenusProvider = ({children}) => {
 
 
     return (
-        <menusContext.Provider value={{menus , onSetMenuEdit , onSetMenuNew , onSetMenuProduct , onSetMenuDelete}}>
+        <menusContext.Provider value={{menus , onSetMenuEdit , onSetMenuNew , onSetMenuProduct , onSetMenuDelete , onSetMenuOnlyNeed}}>
             {children}
         </menusContext.Provider>
     )

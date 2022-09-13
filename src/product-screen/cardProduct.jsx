@@ -1,4 +1,5 @@
-import { useState , useEffect } from "react";
+import { useState , useEffect , useRef } from "react";
+import axios from "axios";
 
 import { changeProductAmount } from "./changeProductAmount";
 import { nameToAssetsId } from "./nameToAssetsId";
@@ -14,43 +15,41 @@ export const CardProduct = ({product}) => {
 
     //amount controller
     const [amount, setAmount] = useState(rest.amount);
-    const [timerActivated, setTimerActivated] = useState(false);
-
+    const [timer, setTimer] = useState("");
     useEffect(() => {
-        if (!timerActivated) {changeProductAmount(_id, amount);}
-    }, [timerActivated])
+        if (timer === false) {setTimeout(()=>{setTimer(true)},1500)}
+        if (timer === true) {changeProductAmount(_id, amount)}
+    }, [timer])
     
     const addOneAmount = () => {
         setAmount(amount+1);
-
-        if (!timerActivated) {
-            setTimerActivated(true)
-            setTimeout(() => {setTimerActivated(false)}, 1500);
-        }
+        if (timer === true || timer === "") {setTimer(false)}
     }
-
+    
     const subOneAmount = () => {
         if (amount === 0) {return} 
         setAmount(amount-1)
-
-        if (!timerActivated) {
-            setTimerActivated(true)
-            setTimeout(() => {setTimerActivated(false)}, 1500);
-        }
+        if (timer === true || timer === "") {setTimer(false)}
     }
 
+
+    const changeProductAmount = () => {
+        axios.put(`https://drink-freeze.herokuapp.com/api/product/changeamount/${_id}?amount=${amount}`)
+    }
+    
+
+
+    
     return(
         <li className="container-product animate__animated animate__fadeIn">
             <div className="data-product">
                 <img className="img-bread-product" src={`assets/logo-cards/${idAssetCard}.png`}></img>
                 <p>TIPO: <b>{name + " " +  size}</b></p>
-                <p style={{margin: 0}}>CANTIDAD</p> <h4> {amount}</h4>
 
                 <div className="footerCard">
                     <div className="dataFooter">
                         <p>CATEGORIA: <b>{category.name}</b></p>
                         <p>{location.name}</p>
-                        <p style={{fontSize: 10}}>{_id}</p>
                     </div>
 
                     <div className="buttonFooter">
@@ -61,6 +60,7 @@ export const CardProduct = ({product}) => {
             </div>
             <div className="button-product">
                 <button onClick={addOneAmount} className="arrow-up"><i className="fa-solid fa-angle-up" /></button>
+                <div>{amount}</div>
                 <button onClick={subOneAmount} className="arrow-down"><i className="fa-solid fa-angle-down" /></button>
             </div>
         </li>   
